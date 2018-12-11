@@ -15,9 +15,11 @@
 	<link id="base-style-responsive" href="{{asset('backend/css/style-responsive.css')}}" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="{{URL::to('backend/img/favicon.ico')}}">
+	
       <style type="text/css">
 		body { background: url({{URL::to('backend/img/bg-login.jpg')}}) !important; }
 	</style>
+	
 </head>
 <body>
 	<div class="container-fluid-full">
@@ -28,10 +30,19 @@
 						<a href="index.html"><i class="halflings-icon home"></i></a>
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
+					<p class="alert-danger">
+					<?php 
+						$message = Session::get('message');
+						if($message){
+							echo $message;
+							Session::put('message', null);
+						}
+					?>
+					</p>
 					<h2>Login to your account</h2>
-					<form class="form-horizontal" action="" method="post">
-						<fieldset>
-							
+					<form class="form-horizontal" action="{{url('/admin-dashboard')}}" method="post">
+						{{ csrf_field() }}
+						<fieldset>							
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
 								<input class="input-large span10" name="admin_email" id="admin_email" type="text" placeholder="type email address"/>
