@@ -3,7 +3,7 @@
 <ul class="breadcrumb">
       <li>
             <i class="icon-home"></i>
-            <a href="index.html">Dashboard</a> 
+            <a href="{{URL::to('/dashboard')}}">Dashboard</a>
             <i class="icon-angle-right"></i>
       </li>
       <li><a href="#">All Manufacture</a></li>

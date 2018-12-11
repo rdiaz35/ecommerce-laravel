@@ -30,6 +30,9 @@ Route::post('/update-manufacture/{manufacture_id}','ManufactureController@update
 Route::get('/delete-manufacture/{manufacture_id}','ManufactureController@delete_manufacture');
 Route::get('/unactive_manufacture/{manufacture_id}','ManufactureController@unactive_manufacture');
 Route::get('/active_manufacture/{manufacture_id}','ManufactureController@active_manufacture');
-
+//==========================================================
+Route::get('/all-product','ProductController@all_product');
+Route::get('/add-product','ProductController@index');
+Route::post('/save-product','ProductController@save_product');
 
 

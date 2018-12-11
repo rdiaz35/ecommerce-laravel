@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Metro Admin Template - Metro UI Style Bootstrap Admin Template</title>
+	<title>Administrator</title>
 	<meta name="description" content="Metro Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -23,95 +23,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Metro</span></a>
+				<a class="brand" href="index.html"><span>Administrator</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white warning-sign"></i>
-							</a>
-							<ul class="dropdown-menu notifications">
-								<li class="dropdown-menu-title">
- 									<span>You have 11 notifications</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>	
-                            	                  <li>
-                                                      <a href="#">
-                                                            <span class="icon blue"><i class="icon-user"></i></span>
-                                                            <span class="message">New user registration</span>
-                                                            <span class="time">1 min</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">7 min</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">8 min</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">16 min</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
-										<span class="time">36 min</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon yellow"><i class="icon-shopping-cart"></i></span>
-										<span class="message">2 items sold</span>
-										<span class="time">1 hour</span> 
-                                                      </a>
-                                                </li>
-								<li class="warning">
-                                                      <a href="#">
-										<span class="icon red"><i class="icon-user"></i></span>
-										<span class="message">User deleted account</span>
-										<span class="time">2 hour</span> 
-                                                      </a>
-                                                </li>
-								<li class="warning">
-                                                      <a href="#">
-										<span class="icon red"><i class="icon-shopping-cart"></i></span>
-										<span class="message">Transaction was canceled</span>
-										<span class="time">6 hour</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">yesterday</span> 
-                                                      </a>
-                                                </li>
-								<li>
-                                                      <a href="#">
-										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
-										<span class="time">yesterday</span> 
-                                                      </a>
-                                                </li>
-                                                <li class="dropdown-menu-sub-footer">
-                            		                  <a>View all notifications</a>
-								</li>	
-							</ul>
-						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -310,8 +226,8 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products </span><span class="label label-important"> New </span></a>
 							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products</span></a></li>
 							</ul>	
 						</li>
 						<li><a href="form.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Slider</span></a></li>
@@ -355,8 +271,8 @@
 	<div class="clearfix"></div>
 	<footer>
 		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">creativeLabs</a></span>
-			<span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co/" alt="Bootstrap Admin Templates">Metro</a></span>
+			<span style="text-align:left;float:left">&copy; 2018 <a href="#" alt="SoftTeccr">SoftTeccr</a></span>
+			<span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="#" alt="Bootstrap Admin Templates">Randy</a></span>
 		</p>
 	</footer>
 	
