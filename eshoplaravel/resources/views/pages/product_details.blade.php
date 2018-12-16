@@ -4,7 +4,7 @@
             <div class="product-details"><!--product-details-->
                   <div class="col-sm-5">
                         <div class="view-product">
-                              <img src="{{URL::to($product_by_details->product_image)}}" class="img-responsive;" alt="" />
+                              <img src="{{URL::to($product_by_details->product_image)}}" alt="" />
                               <h3>ZOOM</h3>
                         </div>
                   </div>
@@ -15,22 +15,23 @@
                               <p>Color: {{$product_by_details->product_color}}</p>
                               <img src="{{URL::to('frontend/images/product-details/rating.png')}}" alt="" />
                               <span>
-                                    <span>US $59</span>
-                                    <label>Quantity:</label>
-                                    <input type="text" value="3" />
-                                    <button type="button" class="btn btn-fefault cart">
-                                          <i class="fa fa-shopping-cart"></i>
-                                          Add to cart
-                                    </button>
+                                    <span>{{$product_by_details->product_price}}</span>
+                                    <form action="{{URL('/add-to-cart')}}" method="post">
+                                          {{csrf_field()}}
+                                          <label>Quantity:</label>
+                                          <input name="quantity" type="text" value="1" />
+                                          <input type="hidden" name="product_id" value="{{$product_by_details->product_id}}" />
+                                          <button type="submit" class="btn btn-fefault cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Add to cart
+                                          </button>
+                                    </form>
                               </span>
                               <p><b>Availability:</b> In Stock</p>
                               <p><b>Condition:</b> New</p>
                               <p><b>Brand:</b> {{$product_by_details->manufacture_name}}</p>
                               <p><b>Category:</b> {{$product_by_details->category_name}}</p>
                               <p><b>Size:</b> {{$product_by_details->product_size}}</p>
-                              <a href="">
-                                    <img src="{{URL::to('frontend/images/product-details/share.png')}}" class="share img-responsive" alt="" />
-                              </a>
                         </div><!--/product-information-->
                   </div>
             </div><!--/product-details-->
