@@ -32,15 +32,15 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +506 223 23 23</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@supernova.com</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.facebook.com/AgenciaDeViajessupernova/"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
@@ -57,7 +57,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="{{asset('frontend/images/home/logo.png')}}" alt="" /></a>
+							<a href="{{URL::to('/')}}"><img src="{{asset('frontend/images/home/logo.png')}}" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -112,7 +112,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="{{URL::to('/')}}" class="active">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
@@ -146,63 +146,32 @@
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
-					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#slider-carousel" data-slide-to="1"></li>
-							<li data-target="#slider-carousel" data-slide-to="2"></li>
-						</ol>
-						
-						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{asset('frontend/images/home/girl1.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-								</div>
+				<div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
+					<?php
+						$all_published_slider = DB::table('tbl_slider')
+							->where('publication_status',1)
+							->get();
+					?>
+					<ol class="carousel-indicators">
+						@foreach( $all_published_slider as $v_slider )
+							<li data-target="#carousel-example-generic" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+						@endforeach
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						@foreach( $all_published_slider as $v_slider )
+							<div class="item {{ $loop->first ? ' active' : '' }}" >
+							<img src="{{URL::to($v_slider->slider_image) }}"  style="width: 100%; height: 200pz;"/>
 							</div>
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{asset('frontend/images/home/girl2.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-								</div>
-							</div>
-							
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{asset('frontend/images/home/girl3.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{asset('frontend/images/home/pricing.png')}}" class="pricing" alt="" />
-								</div>
-							</div>
-							
-						</div>
-						
-						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-						</a>
-						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-						</a>
+						@endforeach
 					</div>
-					
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -222,7 +191,7 @@
 									->get();
 								foreach ($all_published_category as $v_category) {?>
 									<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">{{ $v_category->category_name }}</a></h4>
+									<h4 class="panel-title"><a href="{{URL::to('/product_by_category/'.$v_category->category_id)}}">{{ $v_category->category_name }}</a></h4>
 									</div>
 								<?php } ?>
 							</div>
@@ -236,7 +205,7 @@
 										->where('publication_status',1)
 										->get();
 									foreach ($all_published_manufacture as $v_manufacture) {?>
-										<li><a href="#"> <span class="pull-right">(50)</span>{{ $v_manufacture->manufacture_name }}</a></li>
+										<li><a href="{{URL::to('/product_by_manufacture/'.$v_manufacture->manufacture_id)}}"> <span class="pull-right">(50)</span>{{ $v_manufacture->manufacture_name }}</a></li>
 									<?php } ?>
 								</ul>
 							</div>

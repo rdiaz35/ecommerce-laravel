@@ -230,7 +230,13 @@
 								<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Products</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="form.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Slider</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Slider </span></a>
+							<ul>
+								<li><a class="submenu" href="{{URL::to('/add-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Slider</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Slider</span></a></li>
+							</ul>	
+						</li>
 						<li><a href="chart.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Social Link</span></a></li>
 						<li><a href="typography.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Shop Name</span></a></li>
 						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
