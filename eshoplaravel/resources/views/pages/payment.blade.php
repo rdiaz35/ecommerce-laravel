@@ -123,19 +123,19 @@
                   <form action="{{url('/order-place')}}" method="post">
                         {{csrf_field()}}
                         <div class="radio">
-                        <input type="radio" class="form-check-input" name="payment_gateway" value="visa"> Visa<br>
+                        <input type="radio" class="form-check-input" name="payment_method" value="visa"> Visa<br>
                         </div>
                         <div class="radio">
-                        <input type="radio" class="form-check-input" name="payment_gateway" value="master_card"> MasterCard<br>
+                        <input type="radio" class="form-check-input" name="payment_method" value="master_card"> MasterCard<br>
                         </div>
                         <div class="radio">
-                        <input type="radio" class="form-check-input" name="payment_gateway" value="amex"> Amex<br>
+                        <input type="radio" class="form-check-input" name="payment_method" value="amex"> Amex<br>
                         </div>
                         <div class="radio">
-                        <input type="radio" class="form-check-input" name="payment_gateway" value="vishwa"> Vishwa<br>
+                        <input type="radio" class="form-check-input" name="payment_method" value="vishwa"> Vishwa<br>
                         </div>
                         <div class="radio">
-                        <input type="radio" class="form-check-input" name="payment_gateway" value="ez_cash"> Ez Cash<br>
+                        <input type="radio" class="form-check-input" name="payment_method" value="ez_cash"> Ez Cash<br>
                         </div>
                         <input type="submit" class="btn btn-success" value="Done"/>
                   </form>

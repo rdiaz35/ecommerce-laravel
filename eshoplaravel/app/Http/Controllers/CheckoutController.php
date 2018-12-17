@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Cart;
 use App\Http\Requests;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -90,8 +91,49 @@ class CheckoutController extends Controller
     }
     //
     public function order_place(Request $request){
-        $payment_gateway = $request->payment_gateway;
-        $shipping_id = Session::get('shipping_id');
-        $customer_id = Session::get('customer_id');
+        
+        $payment_method = $request->payment_method;
+        $data = array();
+        $data['payment_method'] = $payment_method;
+        $data['payment_status'] = 'pending';
+
+        $payment_id = DB::table('tbl_payment')
+            ->insertGetId($data);
+            
+        $odata = array();
+        $odata['customer_id'] = Session::get('customer_id');
+        $odata['shipping_id'] = Session::get('shipping_id');
+        $odata['payment_id'] = $payment_id;
+        $odata['order_total'] = Cart::getTotal();
+        $odata['order_status'] = 'pending';
+
+        $order_id = DB::table('tbl_order')
+            ->insertGetId($odata);
+
+        $contents = Cart::getContent();
+        $oddata = array();
+
+        foreach ($contents as $v_content) {
+            $oddata['order_id'] = $order_id;
+            $oddata['product_id'] = $v_content->id;
+            $oddata['product_name'] = $v_content->name;
+            $oddata['product_price'] = $v_content->price;
+            $oddata['product_sales_quantity'] = $v_content->quantity;
+
+            DB::table('tbl_order_details')
+            ->insert($oddata);
+        }
+        if($payment_method == 'visa'){
+            echo "Successfully done by Visa";
+        }else if($payment_method == 'master_card'){
+            echo "Successfully done by MasterCard";
+        }else if($payment_method == 'amex'){
+            echo "Successfully done by Amex";
+        }else if($payment_method == 'vishwa'){
+            echo "Successfully done by Vishwa";
+        }else if($payment_method == 'ez_cash'){
+            echo "Successfully done by Ez Cash";
+        }
+
     }
 }
