@@ -31,6 +31,7 @@ class CheckoutController extends Controller
     }
     //
     public function checkout(){
+        /*
          $all_published_category=DB::table('tbl_category')
             ->where('publication_status', 1)
             ->get();
@@ -39,7 +40,8 @@ class CheckoutController extends Controller
             ->with('all_published_category', $all_published_category);
         return view('layout')
             ->with('pages.payment', $manage_published_category);
-        //return view('pages.checkout');
+            */
+        return view('pages.checkout');
     }
     //
     public function save_shipping_details(Request $request){
@@ -85,5 +87,11 @@ class CheckoutController extends Controller
     //
     public function payment(){
         return view('pages.payment');
+    }
+    //
+    public function order_place(Request $request){
+        $payment_gateway = $request->payment_gateway;
+        $shipping_id = Session::get('shipping_id');
+        $customer_id = Session::get('customer_id');
     }
 }

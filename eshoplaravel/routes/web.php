@@ -24,6 +24,7 @@ Route::post('/customer-login','CheckoutController@customer_login');
 Route::post('/customer-logout','CheckoutController@customer_logout');
 
 Route::get('/payment','CheckoutController@payment');
+Route::post('/order-place','CheckoutController@order_place');
 //Backend routes
 //==========================================================
 Route::get('/logout','SuperAdminController@logout');

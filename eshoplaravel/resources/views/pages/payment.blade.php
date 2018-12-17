@@ -86,33 +86,59 @@
                         <h3 class="headingTop text-center">Select Your Payment Method</h3>	
                         <p class="text-center">Created with bootsrap button and using radio button</p>
                   </div>
+                  {{--
                   <div class="paymentWrap">
+                        
                         <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
-                              <label class="btn paymentMethod active">
-                                    <div class="method visa"></div>
-                                    <input type="radio" name="options" checked> 
-                              </label>
-                              <label class="btn paymentMethod">
-                                    <div class="method master-card"></div>
-                                    <input type="radio" name="options"> 
-                              </label>
-                              <label class="btn paymentMethod">
-                                    <div class="method amex"></div>
-                                    <input type="radio" name="options">
-                              </label>
-                              <label class="btn paymentMethod">
-                                    <div class="method vishwa"></div>
-                                    <input type="radio" name="options"> 
-                              </label>
-                              <label class="btn paymentMethod">
-                                    <div class="method ez-cash"></div>
-                                    <input type="radio" name="options"> 
-                              </label>                               
+                              {{--
+                              <form action="{{url('/order-place')}}" method="post">
+                                    {{csrf_field()}}
+                                    <label class="btn paymentMethod active">
+                                          <div class="method visa"></div>
+                                          <input type="radio" name="payment_gateway" value="visa" checked> 
+                                    </label>
+                                    <label class="btn paymentMethod">
+                                          <div class="method master-card"></div>
+                                          <input type="radio" name="payment_gateway" value="master_card"> 
+                                    </label>
+                                    <label class="btn paymentMethod">
+                                          <div class="method amex"></div>
+                                          <input type="radio" name="payment_gateway" value="amex">
+                                    </label>
+                                    <label class="btn paymentMethod">
+                                          <div class="method vishwa"></div>
+                                          <input type="radio" name="payment_gateway" value="vishwa"> 
+                                    </label>
+                                    <label class="btn paymentMethod">
+                                          <div class="method ez-cash"></div>
+                                          <input type="radio" name="payment_gateway" value="ez_cash"> 
+                                    </label>                         
+                                    <input type="submit" class="btn btn-success" value="Done"/>
+                              </form>
+                              
+                              
                         </div>        
                   </div>
-                  <div class="footerNavWrap clearfix">
-                        <div class="btn btn-success pull-left btn-fyi"><span class="glyphicon glyphicon-chevron-left"></span> Done</div>
-                  </div>
+                  --}}
+                  <form action="{{url('/order-place')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="radio">
+                        <input type="radio" class="form-check-input" name="payment_gateway" value="visa"> Visa<br>
+                        </div>
+                        <div class="radio">
+                        <input type="radio" class="form-check-input" name="payment_gateway" value="master_card"> MasterCard<br>
+                        </div>
+                        <div class="radio">
+                        <input type="radio" class="form-check-input" name="payment_gateway" value="amex"> Amex<br>
+                        </div>
+                        <div class="radio">
+                        <input type="radio" class="form-check-input" name="payment_gateway" value="vishwa"> Vishwa<br>
+                        </div>
+                        <div class="radio">
+                        <input type="radio" class="form-check-input" name="payment_gateway" value="ez_cash"> Ez Cash<br>
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Done"/>
+                  </form>
             </div>
       </div>
 </section><!--/#do_action-->
