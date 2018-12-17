@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
-    //
+    //METODO PARA AGREGAR AL CARRITO
     public function add_to_cart(Request $request){
         $qty = $request->quantity;
         $product_id = $request->product_id;
@@ -29,7 +29,7 @@ class CartController extends Controller
         Cart::add($data);
         return Redirect::to('/show-cart');
     }
-    //
+    //MUESTRA LOS PRODUCTOS DEL CARRO
     public function show_cart(){
 
         $all_published_category=DB::table('tbl_category')
@@ -42,12 +42,12 @@ class CartController extends Controller
             ->with('pages.manage_published_category', $manage_published_category);
 
     }
-    //
+    //ELIMINA DEL CARRITO
     public function delete_to_cart($id){
         Cart::remove($id);
         return Redirect::to('/show-cart');
     }
-    //
+    //ACTUALIZA EL CARRITO
     public function update_cart(Request $request){
         $qty = $request->quantity;
         $id = $request->id;

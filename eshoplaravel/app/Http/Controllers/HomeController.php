@@ -28,6 +28,7 @@ class HomeController extends Controller
         
         //return view('pages.home_content');
     }
+    //CARGA DATOS DE LA CATEGORIA
     public function show_product_by_category($category_id){
         
         $product_by_category = DB::table('tbl_products')
@@ -44,7 +45,7 @@ class HomeController extends Controller
         return view('layout')
             ->with('pages.category_by_products', $manage_product_by_category);
     }
-    //
+    //CARGA DATOS DE MANUFACTURA
     public function show_product_by_manufacture($manufacture_id){
         
         $product_by_manufacture = DB::table('tbl_products')
@@ -61,7 +62,7 @@ class HomeController extends Controller
         return view('layout')
             ->with('pages.manufacture_by_products', $manage_product_by_manufacture);
     }
-    //
+    //CARGA DATOS DEL PRODUCTO POR ID
     public function product_details_by_id($product_id){
         
         $product_by_details = DB::table('tbl_products')

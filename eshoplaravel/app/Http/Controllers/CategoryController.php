@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $this->AdminAuthCheck();
         return view('admin.add_category');
     }
-    //
+    //CARGA TODAS LAS CATEGORIAS
     public function all_category(){
         $this->AdminAuthCheck();
         $all_category_info = DB::table('tbl_category')->get();
@@ -25,7 +25,7 @@ class CategoryController extends Controller
         return view('admin_layout')
             ->with('admin.all_category', $manage_category);
     }
-    //
+    //SALVA TODAS LAS CATEGORIAS
     public function save_category(Request $request){
         //$this->AdminAuthCheck();
         $data = array();
@@ -38,7 +38,7 @@ class CategoryController extends Controller
         Session::put('message','Category added successfully !!');
         return Redirect::to('/add-category');
     }
-    //
+    //INACTIVA LA CATEGORIA
     public function unactive_category($category_id){
         //$this->AdminAuthCheck();
         DB::table('tbl_category')
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         Session::put('message','Category unactive successfully !!');
             return Redirect::to('/all-category');
     }
-    //
+    //ACTIVA LA CATEGORIA
     public function active_category($category_id){
         //$this->AdminAuthCheck();
         DB::table('tbl_category')
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         Session::put('message','Category active successfully !!');
             return Redirect::to('/all-category');
     }
-    //
+    //EDITA LA CATEGORIA
     public function edit_category($category_id){
         $this->AdminAuthCheck();
         //return view('admin.edit_category');
@@ -70,7 +70,7 @@ class CategoryController extends Controller
             ->with('admin.edit_category', $category_info);
         
     }
-    //
+    //ACTUALIZA LA CATEGORIA
     public function update_category(Request $request, $category_id){
         //$this->AdminAuthCheck();
         $data = array();
@@ -84,7 +84,7 @@ class CategoryController extends Controller
             return Redirect::to('/all-category');
        
     }
-    //
+    //ELIMINA LA CATEGORIA
     public function delete_category($category_id){
         //$this->AdminAuthCheck();
         DB::table('tbl_category')
@@ -93,7 +93,7 @@ class CategoryController extends Controller
         Session::put('message','Category deleted successfully !!');
             return Redirect::to('/all-category');
     }
-    //
+    //AUTENTIFICACION DE SESSION
     public function AdminAuthCheck(){
         $admin_id = Session::get('admin_id');
         if ($admin_id){

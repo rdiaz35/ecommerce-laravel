@@ -14,7 +14,7 @@ class AdminController extends Controller
     public function index(){
         return view('admin_login');
     }
-    //
+    ///METODO PARA LAS VALIDACIONES EN EL DASHBOARD
     public function dashboard(Request $request){
         $admin_email = $request->admin_email;
         $admin_password = $request->admin_password;

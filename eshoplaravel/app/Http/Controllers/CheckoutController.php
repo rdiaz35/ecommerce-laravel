@@ -15,7 +15,7 @@ class CheckoutController extends Controller
     public function login_check(){
         return view('pages.login');
     }
-    //
+    //SALVA DATOS DE REGISTRO
     public function customer_registration(Request $request){
         $data=array();
         $data['customer_name'] = $request->customer_name;
@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         Session::put('customer_name', $request->customer_name);
         return Redirect('/checkout');
     }
-    //
+    //CARGA EL VIEW DE CHECKOUT
     public function checkout(){
         /*
          $all_published_category=DB::table('tbl_category')
@@ -44,7 +44,7 @@ class CheckoutController extends Controller
             */
         return view('pages.checkout');
     }
-    //
+    //SALVA DATOS DEL SHIPPING
     public function save_shipping_details(Request $request){
         $data = array();
         $data['shipping_email'] = $request->shipping_email;
@@ -61,7 +61,7 @@ class CheckoutController extends Controller
         Session::put('shipping_id', $shipping_id);
         return Redirect('/payment');
     }
-    //
+    //ACCESO DEL USUARIO CUSTOMISADO
     public function customer_login(Request $request){
         $customer_email = $request->customer_email;
         $password = md5($request->password);
@@ -80,16 +80,16 @@ class CheckoutController extends Controller
             return Redirect('/login-check');
         }
     }
-    //
+    //SALIDA DEL USUARIO
     public function customer_logout(){
         Session::flush();
         return Redirect::to('/');
     }
-    //
+    //MUESTAR EL VIEW PAYMENT
     public function payment(){
         return view('pages.payment');
     }
-    //
+    //SALVADO DE LA ORDEN
     public function order_place(Request $request){
         
         $payment_method = $request->payment_method;
@@ -142,7 +142,7 @@ class CheckoutController extends Controller
             echo "Not select!!";
         }
     }
-    //
+    //CARGA DATOS DE LAS ORDENES
     public function manage_order(){
         $this->AdminAuthCheck();
         $all_order_info = DB::table('tbl_order')
@@ -155,7 +155,7 @@ class CheckoutController extends Controller
         return view('admin_layout')
             ->with('admin.manage_order', $manage_order);
     }
-    //
+    //AUTENTIFICACION DE SESION
     public function AdminAuthCheck(){
         $admin_id = Session::get('admin_id');
         if ($admin_id){
@@ -165,7 +165,7 @@ class CheckoutController extends Controller
             return Redirect::to('/admin')->send();
         }
     }
-    //
+    //VISTA DE LA ORDEN
     public function view_order($order_id){
         $order_by_id = DB::table('tbl_order')
             ->join('tbl_customer','tbl_order.customer_id', '=', 'tbl_customer.customer_id')
@@ -177,11 +177,6 @@ class CheckoutController extends Controller
         $order_details_by_id = DB::table('tbl_order_details')
             ->where('order_id',$order_id)
             ->get();
-        /*
-        echo "<pre>";
-        print_r($order_details_by_id);
-        echo "</pre>"; 
-        */
         $view_order = view('admin.view_order')
             ->with('order_by_id', $order_by_id)
             ->with('order_details_by_id', $order_details_by_id);
