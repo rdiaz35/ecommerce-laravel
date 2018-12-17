@@ -13,6 +13,7 @@
 	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
 	<link href="{{asset('frontend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
+	<link href="{{asset('css/payment.css')}}" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -93,8 +94,10 @@
 								?>
 								<?php if ($customer_id != NULL) {?>
 									<li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<?php }else { ?>
+								<?php }elseif($customer_id != NULL && $shipping_id != NULL) { ?>
 									<li><a href="{{URL::to('/login-check')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<?php }else { ?>
+									<li><a href="{{URL::to('/payment')}}"></i> Payment</a></li>
 								<?php } ?>
 									
 								<li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
@@ -103,7 +106,7 @@
 									$customer_id = Session::get('customer_id');
 								?>
 								<?php if ($customer_id != NULL) {?>
-									<li><a href="{{URL::to('/login-check')}}"><i class="fa fa-unlock"></i> Logout</a></li>    
+									<li><a href="{{URL::to('/customer-logout')}}"><i class="fa fa-unlock"></i> Logout</a></li>    
 								<?php }else { ?>
 									<li><a href="{{URL::to('/login-check')}}"><i class="fa fa-lock"></i> Login</a></li>
 								<?php } ?>
@@ -132,21 +135,29 @@
 								<li><a href="{{URL::to('/')}}" class="active">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="{{URL::to('/login-check')}}">Checkout</a></li> 
-										<li><a href="{{URL::to('/show-cart')}}">Cart</a></li> 
-										
+										<li><a href="#">Products</a></li>
+										<li><a href="#">Product Details</a></li> 
+										<?php 
+											$customer_id = Session::get('customer_id');
+										?>
+										<?php if ($customer_id != NULL) {?>
+											<li><a href="{{URL::to('/checkout')}}">Checkout</a></li>
+										<?php }elseif($customer_id != NULL && $shipping_id != NULL) { ?>
+											<li><a href="{{URL::to('/login-check')}}">Checkout</a></li>
+										<?php }else { ?>
+											<li><a href="{{URL::to('/payment')}}">Payment</a></li>
+										<?php } ?>
+										<li><a href="{{URL::to('/show-cart')}}">Cart</a></li> 										
 									</ul>
 								</li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+										<li><a href="#">Blog List</a></li>
+										<li><a href="#">Blog Single</a></li>
 									</ul>
 								</li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="#">404</a></li>
+								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
 					</div>

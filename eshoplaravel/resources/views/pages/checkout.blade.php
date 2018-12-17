@@ -9,24 +9,22 @@
                   <div class="row">
                         <div class="col-sm-12 clearfix">
                               <div class="bill-to">
-                                    <p>Bill To</p>
+                                    <p>Shipping Details</p>
                                     <div class="form-one">
-                                          <form>
-                                                <input type="text" name="shipping_email" placeholder="Email *">
-                                                <input type="text" name="shipping_first_name" placeholder="First Name *">
-                                                <input type="text" name="shipping_last_name" placeholder="Last Name *">
-                                                <input type="text" name="shipping_address" placeholder="Address *">
-                                                <input type="text" name="shipping_mobile_number" placeholder="Mobile Number *">
-                                                <input type="text" name="shipping_city" placeholder="City *">
+                                          <form action="{{URL('/save-shipping-details')}}" method="post">
+                                                {{csrf_field()}}
+                                                <input type="text" name="shipping_email" required placeholder="Email *">
+                                                <input type="text" name="shipping_first_name" required placeholder="First Name *">
+                                                <input type="text" name="shipping_last_name" required placeholder="Last Name *">
+                                                <input type="text" name="shipping_address" required placeholder="Address *">
+                                                <input type="text" name="shipping_mobile_number" required placeholder="Mobile Number *">
+                                                <input type="text" name="shipping_city" required placeholder="City *">
                                                 <input type="submit" class="btn btn-warning" value="Done">
                                           </form>
                                     </div>
                               </div>
                         </div>
                   </div>
-            </div>
-            <div class="review-payment">
-                  <h2>Review & Payment</h2>
             </div>
       </div>
 </section> <!--/#cart_items-->

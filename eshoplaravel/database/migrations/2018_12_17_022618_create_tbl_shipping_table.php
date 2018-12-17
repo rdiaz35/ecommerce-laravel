@@ -15,6 +15,7 @@ class CreateTblShippingTable extends Migration
     {
         Schema::create('tbl_shipping', function (Blueprint $table) {
             $table->increments('shipping_id');
+            $table->string('shipping_email');
             $table->string('shipping_first_name');
             $table->string('shipping_last_name');
             $table->string('shipping_address');

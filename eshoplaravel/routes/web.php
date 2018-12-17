@@ -18,6 +18,12 @@ Route::post('/update-cart','CartController@update_cart');
 Route::get('/login-check','CheckoutController@login_check');
 Route::post('/customer-registration','CheckoutController@customer_registration');
 Route::get('/checkout','CheckoutController@checkout');
+Route::post('/save-shipping-details','CheckoutController@save_shipping_details');
+//customer login and logout
+Route::post('/customer-login','CheckoutController@customer_login');
+Route::post('/customer-logout','CheckoutController@customer_logout');
+
+Route::get('/payment','CheckoutController@payment');
 //Backend routes
 //==========================================================
 Route::get('/logout','SuperAdminController@logout');
