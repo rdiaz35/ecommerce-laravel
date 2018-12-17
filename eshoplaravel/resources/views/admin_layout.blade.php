@@ -237,9 +237,9 @@
 								<li><a class="submenu" href="{{URL::to('/all-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Slider</span></a></li>
 							</ul>	
 						</li>
-						<li><a href="chart.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Social Link</span></a></li>
-						<li><a href="typography.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Shop Name</span></a></li>
-						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
+						<li><a href="{{URL::to('/manage-order')}}"><i class="icon-align-justify"></i><span class="hidden-tablet"> Manage Order</span></a></li>
+						<li><a href="#"><i class="icon-align-justify"></i><span class="hidden-tablet"> Shop Name</span></a></li>
+						<li><a href="#"><i class="icon-align-justify"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
 					</ul>
 				</div>
 			</div>
