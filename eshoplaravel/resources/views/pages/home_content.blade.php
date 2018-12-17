@@ -1,5 +1,7 @@
 @extends('layout')
+
 @section('content')
+@include('slider')
 <h2 class="title text-center">Features Items</h2>
       <?php foreach ($all_published_product as $v_published_product) { ?>
       <div class="col-sm-4">

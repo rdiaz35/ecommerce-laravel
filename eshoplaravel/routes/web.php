@@ -8,8 +8,16 @@ Route::get('/', 'HomeController@index');
 Route::get('/product_by_category/{category_id}', 'HomeController@show_product_by_category');
 Route::get('/product_by_manufacture/{manufacture_id}', 'HomeController@show_product_by_manufacture');
 Route::get('/view_product/{product_id}', 'HomeController@product_details_by_id');
+//==========================================================
 Route::post('/add-to-cart','CartController@add_to_cart');
 Route::get('/show-cart','CartController@show_cart');
+Route::get('/delete-to-cart/{id}','CartController@delete_to_cart');
+Route::post('/update-cart','CartController@update_cart');
+//LOGIN
+//==========================================================
+Route::get('/login-check','CheckoutController@login_check');
+Route::post('/customer-registration','CheckoutController@customer_registration');
+Route::get('/checkout','CheckoutController@checkout');
 //Backend routes
 //==========================================================
 Route::get('/logout','SuperAdminController@logout');

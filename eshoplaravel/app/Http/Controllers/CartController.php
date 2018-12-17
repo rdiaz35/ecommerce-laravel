@@ -42,4 +42,26 @@ class CartController extends Controller
             ->with('pages.manage_published_category', $manage_published_category);
 
     }
+    //
+    public function delete_to_cart($id){
+        Cart::remove($id);
+        return Redirect::to('/show-cart');
+    }
+    //
+    public function update_cart(Request $request){
+        $qty = $request->quantity;
+        $id = $request->id;
+        $submit = $request->submit;
+        echo "$submit";
+        if ($submit == "-"){
+            Cart::update($id, array(
+                'quantity' => -1,
+            ));
+        }else{
+             Cart::update($id, array(
+                'quantity' => 1,
+            ));
+        }
+        return Redirect::to('/show-cart');
+    }
 }
